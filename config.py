@@ -2,6 +2,10 @@
 
 from pymongo import MongoClient
 
-DATABASE = MongoClient()['restfulapi'] # DB_NAME
+DATABASE = MongoClient()['doubtnut'] # DB_NAME
 DEBUG = True
-client = MongoClient('localhost', 27017)
+# client = MongoClient('mongodb://doubtnut:Doubtnut_2018@13.233.54.212:27017/')
+client = MongoClient('13.233.54.212', 27017)
+
+
+# mongodb://13.233.54.212:27017/doubtnut
