@@ -39,7 +39,7 @@ def get_initial_response():
 
 
 
-@app.route("/check", methods=['POST'])
+@app.route("/blur", methods=['POST'])
 def getBlurPercentage():
     try:
         image_url = request.form.get('image_url')
@@ -61,28 +61,28 @@ def getBlurPercentage():
         #     print(i)
 
 
-        collection.update({
-            "qid":int(qid)
-            },{
-            "$set":updated_obj
-            }, upsert = False)
+        # collection.update({
+        #     "qid":int(qid)
+        #     },{
+        #     "$set":updated_obj
+        #     }, upsert = False)
 
-        # collection.delete_one({"qid":int(qid)})
-        data ={
-            'success':True,
-            'blur':blur_value
-        }
+        # # collection.delete_one({"qid":int(qid)})
+        # data ={
+        #     'isb':True,
+        #     'blur':blur_value
+        # }
 
         response_data ={
             "meta": {
                 "code": 200,
-                "success": true,
+                "success": True,
                 "message": "SUCCESS",
               },
-              "data": data
+              "data": updated_obj
         }
         
-        return make_response(jsonify(response_data), 200)
+        return jsonify(response_data)
     except:
         return "", 500
 
